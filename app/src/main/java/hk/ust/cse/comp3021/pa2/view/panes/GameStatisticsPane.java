@@ -88,5 +88,4 @@ public class GameStatisticsPane extends GridPane implements GameUIComponent {
         // TODO: Update the text of the corresponding label with Score: <number> (e.g., Score: 1).
         scoreLabel.setText("Score: "+value);
     }
-
 }

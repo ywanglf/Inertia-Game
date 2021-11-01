@@ -2,6 +2,7 @@ package hk.ust.cse.comp3021.pa2.view.panes;
 
 import hk.ust.cse.comp3021.pa2.controller.GameController;
 import hk.ust.cse.comp3021.pa2.model.Direction;
+import hk.ust.cse.comp3021.pa2.model.MoveResult;
 import hk.ust.cse.comp3021.pa2.util.NotImplementedException;
 import hk.ust.cse.comp3021.pa2.view.GameUIComponent;
 import hk.ust.cse.comp3021.pa2.view.events.MoveEvent;
@@ -46,7 +47,8 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      */
     private void move(@NotNull Direction direction) {
         // TODO: Perform move action on game controller and trigger the move event with its result.
-        gameController.processMove(direction);
+        MoveResult result = gameController.processMove(direction);
+        moveEvent.get().handle(new MoveEvent(result));
     }
 
     /**
@@ -80,7 +82,7 @@ public class GameControlPane extends GridPane implements GameUIComponent {
         GridPane.setFillWidth(undoButton, true);
 
         // TODO: Add event handler for the click event of the undo button.
-        throw new NotImplementedException();
+        this.undoButton.setOnAction(event -> {performUndo();});
     }
 
     /**
@@ -88,7 +90,10 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      */
     private void setMoveButtonsHandler() {
         // TODO: Add event handler for the click event of the move buttons.
-        throw new NotImplementedException();
+        this.upButton.setOnAction(event -> {move(Direction.UP);});
+        this.downButton.setOnAction(event -> {move(Direction.DOWN);});
+        this.leftButton.setOnAction(event -> {move(Direction.LEFT);});
+        this.rightButton.setOnAction(event -> {move(Direction.RIGHT);});
     }
 
     /**
@@ -105,7 +110,10 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      */
     private void addMoveButtons() {
         // TODO: Place the move buttons to appropriate position of the pane.
-        throw new NotImplementedException();
+        this.add(upButton, 1,0,1,1);
+        this.add(downButton, 1,2,1,1);
+        this.add(leftButton, 0,1,1,1);
+        this.add(rightButton, 2,1,1,1);
     }
 
     /**
@@ -132,6 +140,9 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      */
     public void performUndo() {
         // TODO: Perform undo on the game controller and trigger the move event with the latest move result after undo.
-        throw new NotImplementedException();
+        MoveResult result = gameController.getGameState().getMoveStack().pop();
+        gameController.getGameState().getMoveStack().push(result);
+        gameController.processUndo();
+        moveEvent.get().handle(new MoveEvent(result));
     }
 }
