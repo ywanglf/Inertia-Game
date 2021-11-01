@@ -46,7 +46,7 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      */
     private void move(@NotNull Direction direction) {
         // TODO: Perform move action on game controller and trigger the move event with its result.
-        throw new NotImplementedException();
+        gameController.processMove(direction);
     }
 
     /**

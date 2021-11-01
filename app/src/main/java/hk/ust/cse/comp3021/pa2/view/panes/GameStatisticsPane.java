@@ -57,33 +57,36 @@ public class GameStatisticsPane extends GridPane implements GameUIComponent {
 
     private void setNumGems(int value) {
         // TODO: Update the text of the corresponding label with Gems: <number> (e.g., Gems: 1).
-        throw new NotImplementedException();
+        numGemsLabel.setText("Gems: "+value);
     }
 
     private void setNumMoves(int value) {
         // TODO: Update the text of the corresponding label with Move <number> (e.g., Move: 1).
-        throw new NotImplementedException();
+        numMovesLabel.setText("Move: "+value);
     }
 
     private void setNumUndoes(int value) {
         // TODO: Update the text of the corresponding label with Undoes: <number> (e.g., Undoes: 1).
-        throw new NotImplementedException();
+        numUndoesLabel.setText("Undoes: "+value);
     }
 
     private void setNumDeaths(int value) {
         // TODO: Update the text of the corresponding label with Deaths: <number> (e.g., Deaths: 1).
-        throw new NotImplementedException();
+        numDeathsLabel.setText("Deaths: "+value);
     }
 
     private void setNumLives(int value, boolean hasUnlimitedLives) {
         // TODO: Update the text of the corresponding label with Lives: <number>, \
         //  shows "Unlimited" if the lives are unlimited (e.g., Lives: 1 or Lives: Unlimited).
-        throw new NotImplementedException();
+        if (hasUnlimitedLives)
+            numLivesLabel.setText("Lives: Unlimited");
+        else
+            numLivesLabel.setText("Lives: "+value);
     }
 
     private void setScore(int value) {
         // TODO: Update the text of the corresponding label with Score: <number> (e.g., Score: 1).
-        throw new NotImplementedException();
+        scoreLabel.setText("Score: "+value);
     }
 
 }

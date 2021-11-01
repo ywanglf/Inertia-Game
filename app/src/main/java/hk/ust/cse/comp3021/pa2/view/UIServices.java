@@ -9,6 +9,7 @@ import javafx.stage.FileChooser;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -28,7 +29,10 @@ public class UIServices {
     public static FileChooser createGameLoadFileChooser() {
         // TODO: Create a file chooser with the provided string above \
         //  and set its initial directory to be the current working directory.
-        throw new NotImplementedException();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle(FILE_CHOOSER_TITLE);
+        fileChooser.setInitialDirectory(getWorkingDirectory().toFile());
+        return fileChooser;
     }
 
     /**
@@ -75,7 +79,10 @@ public class UIServices {
      */
     public static void showLoadGameErrorDialog() {
         // TODO: Show a dialog using the provided strings above.
-        throw new NotImplementedException();
+        Alert error = new Alert(Alert.AlertType.WARNING);
+        error.setTitle(LOAD_GAME_ERROR_ALERT_TITLE);
+        error.setContentText(LOAD_GAME_ERROR_ALERT_CONTENT_TEXT);
+        error.show();
     }
 
     private static final String LOAD_GAME_CANCEL_ALERT_TITLE = "Operation Cancelled";
@@ -87,7 +94,10 @@ public class UIServices {
      */
     public static void showFileNotSelectedDialog() {
         // TODO: Show a dialog using the provided strings above.
-        throw new NotImplementedException();
+        Alert cancel = new Alert(Alert.AlertType.WARNING);
+        cancel.setTitle(LOAD_GAME_CANCEL_ALERT_TITLE);
+        cancel.setContentText(LOAD_GAME_CANCEL_ALERT_CONTENT_TEXT);
+        cancel.show();
     }
 
     private static final String WIN_ALERT_TITLE = "Congratulations";
@@ -99,7 +109,10 @@ public class UIServices {
      */
     public static void showWinDialog() {
         // TODO: Show a dialog using the provided strings above.
-        throw new NotImplementedException();
+        Alert win = new Alert(Alert.AlertType.INFORMATION);
+        win.setTitle(WIN_ALERT_TITLE);
+        win.setContentText(WIN_ALERT_CONTENT_TEXT);
+        win.show();
     }
 
     private static final String LOSE_ALERT_TITLE = "Oops";
@@ -111,6 +124,9 @@ public class UIServices {
      */
     public static void showLoseDialog() {
         // TODO: Show a dialog using the provided strings above.
-        throw new NotImplementedException();
+        Alert lose = new Alert(Alert.AlertType.INFORMATION);
+        lose.setTitle(LOSE_ALERT_TITLE);
+        lose.setContentText(LOSE_ALERT_CONTENT_TEXT);
+        lose.show();
     }
 }

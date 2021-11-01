@@ -27,6 +27,7 @@ public class GameBoardPane extends GridPane implements GameUIComponent {
      */
     public void showGameState(GameState gameState) {
         // TODO: Update the content based on the state of the game board.
+        //gameState.
         throw new NotImplementedException();
     }
 
