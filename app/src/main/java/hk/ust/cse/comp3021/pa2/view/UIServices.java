@@ -9,7 +9,6 @@ import javafx.stage.FileChooser;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -79,7 +78,7 @@ public class UIServices {
      */
     public static void showLoadGameErrorDialog() {
         // TODO: Show a dialog using the provided strings above.
-        Alert error = new Alert(Alert.AlertType.WARNING);
+        Alert error = new Alert(Alert.AlertType.ERROR);
         error.setTitle(LOAD_GAME_ERROR_ALERT_TITLE);
         error.setContentText(LOAD_GAME_ERROR_ALERT_CONTENT_TEXT);
         error.show();
@@ -112,7 +111,7 @@ public class UIServices {
         Alert win = new Alert(Alert.AlertType.INFORMATION);
         win.setTitle(WIN_ALERT_TITLE);
         win.setContentText(WIN_ALERT_CONTENT_TEXT);
-        win.show();
+        win.showAndWait();
     }
 
     private static final String LOSE_ALERT_TITLE = "Oops";
@@ -127,6 +126,6 @@ public class UIServices {
         Alert lose = new Alert(Alert.AlertType.INFORMATION);
         lose.setTitle(LOSE_ALERT_TITLE);
         lose.setContentText(LOSE_ALERT_CONTENT_TEXT);
-        lose.show();
+        lose.showAndWait();
     }
 }

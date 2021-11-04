@@ -81,14 +81,17 @@ public class MainGamePane extends VBox implements GameUIComponent {
      */
     private void gameMoveHandler(MoveEvent e) {
         // TODO: Update the game board and game statistics
-
         gameBoard.showGameState(gameState);
         gameStatisticsPane.showStatistics(gameState);
 
         // TODO: Show a dialog if the user wins the game or loses the game.
-        if (gameState.hasWon())
+        if (gameState.hasWon()) {
             UIServices.showWinDialog();
-        else if (gameState.hasLost())
+            game.showMainMenu();
+        }
+        else if (gameState.hasLost()) {
             UIServices.showLoseDialog();
+            game.showMainMenu();
+        }
     }
 }

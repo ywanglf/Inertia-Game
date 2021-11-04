@@ -30,10 +30,10 @@ public class GameBoardPane extends GridPane implements GameUIComponent {
         // TODO: Update the content based on the state of the game board.
         int row = gameState.getGameBoard().getNumRows();
         int col = gameState.getGameBoard().getNumCols();
-        for (int i=0; i<row; i++){
-            for (int j=0; j<col; j++){
+        for (int j=0; j<col; j++){
+            for (int i=0; i<row; i++){
                 GameCell gameCell = new GameCell(gameState.getGameBoard().getCell(i,j));
-                this.add(gameCell,i ,j);
+                this.add(gameCell,j ,i);
             }
         }
     }
