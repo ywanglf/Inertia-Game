@@ -3,11 +3,9 @@ package hk.ust.cse.comp3021.pa2.view.panes;
 import hk.ust.cse.comp3021.pa2.InertiaFxGame;
 import hk.ust.cse.comp3021.pa2.controller.GameController;
 import hk.ust.cse.comp3021.pa2.model.GameState;
-import hk.ust.cse.comp3021.pa2.util.NotImplementedException;
 import hk.ust.cse.comp3021.pa2.view.GameUIComponent;
 import hk.ust.cse.comp3021.pa2.view.events.MoveEvent;
 import hk.ust.cse.comp3021.pa2.view.UIServices;
-import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -88,8 +86,7 @@ public class MainGamePane extends VBox implements GameUIComponent {
         if (gameState.hasWon()) {
             UIServices.showWinDialog();
             game.showMainMenu();
-        }
-        else if (gameState.hasLost()) {
+        } else if (gameState.hasLost()) {
             UIServices.showLoseDialog();
             game.showMainMenu();
         }
